@@ -1,11 +1,11 @@
 steps:
 # Step 1: Build the Docker Image
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/friendly-plane-294914/docker-youtube/my-build:prod1', '.' ]
+  args: [ 'build', '-t', 'docker-image-location/docker-youtube/my-build:prod1', '.' ]
 
 # Step 2: Push the image to the Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'push', 'us-central1-docker.pkg.dev/friendly-plane-294914/docker-youtube/my-build:prod1' ]
+  args: [ 'push', 'docker-image-location/docker-youtube/my-build:prod1' ]
 
 
 # Step 3: Deployment to Cloud Run after image is pushed
@@ -15,7 +15,7 @@ steps:
   - 'deploy'
   - 'my-service'  # Replace with your service name
   - '--image'
-  - 'us-central1-docker.pkg.dev/friendly-plane-294914/docker-youtube/my-build:prod1'
+  - 'docker-image-location/docker-youtube/my-build:prod1'
   - '--region'
   - 'us-central1'  # You can change this if you want to deploy to a different region
   - '--platform'
