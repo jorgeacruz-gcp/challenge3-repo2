@@ -3,3 +3,5 @@ steps:
   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/friendly-plane-294914/docker-youtube/my-build:stage', '.' ]
 images:
 - 'us-central1-docker.pkg.dev/friendly-plane-294914/docker-youtube/my-build:stage'
+
+# Change the file name to cloudbuild.yaml when you submit the job in Google CLI.
